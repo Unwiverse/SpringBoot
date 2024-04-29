@@ -1,0 +1,6 @@
+Spring Boot DevTools
+Lombok
+Thymleaf
+Spring Web
+
+프로젝트 만들 때 추가할 lib들
