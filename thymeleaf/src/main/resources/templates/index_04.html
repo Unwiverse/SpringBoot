@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 조건식(th:if / th:unless)
+		 -단순하게 참, 거짓 값으로 두 개의 값 중에 하나를 표시하는 방법
+		 
+		 * th:if="조건" ==> 설정한 조건이 true면 이 태그 및 그 안에 있는 태그를 표시함
+		 	- true로 인식되는 내용
+		 		- true, 0 이외 숫자, "0", "off", "no" 이외의 텍스트
+		 		
+		 * th:unless="조건" ==> 설정 조건이 false면 이 태그 및 그 안에 있는 태그를 표시함
+		 	- false로 인식되는 내용
+		 		-false, 숫자 0, "0", "off", "no"와 같은 텍스트
+	-->
+	
+	<div align="center">
+		<h1>Thymeleaf</h1>
+		<p th:if="${check}" th:text="${No}+ '은(는)' +${trueVal}">message</p>
+		<p th:unless="${check}" th:text="${No}+'은(는)'+${falseVal}">message</p>
+		<p>메세지</p>
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+</style>
+</head>
+<body>
+	<div align="center">
+		<hr>
+			<h2>PC정보</h2>
+		<hr>
+		<br><br>
+		
+		<table border="1"  width="600">
+			<thead>
+			<tr>
+				<th>번호</th>
+				<th>CPU</th>
+				<th>Mainboard</th>
+				<th>RAM</th>
+				<th>VGA</th>
+			</tr>
+			</thead>
+			
+			<tbody th:each="pbj : ${Info}">
+			<tr>
+				<td th:text="${pbj.ProNo}" />
+				<td th:text="${pbj.cpu}" />
+				<td th:text="${pbj.mainboard}" />
+				<td th:text="${pbj.ram}" />
+				<td th:text="${pbj.vga}" />
+			</tr>
+			</tbody>
+			
+		</table>
+	</div>
+
+</body>
+</html>

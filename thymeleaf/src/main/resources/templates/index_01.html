@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div align="center">
+			<h1>Thymeleaf 페이지</h1>
+			<p th:text="${message}"></p>
+			<form method="get" action="data">
+			  <input type="text" name="txt1" th:value="${message}">
+			  <input type="submit" value="전송">
+			</form>
+		</div>
+</body>
+</html>
