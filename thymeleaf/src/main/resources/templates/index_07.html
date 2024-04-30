@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<!-- 
+			반복문(th:each)
+			- 반복해서 실행할 때 쓰는 방식
+			 * <OO th:each="변수: ${컬렉션, 객체, 배열}">
+			 		${변수}
+			   </OO>
+			   ==> th:each에선 배열이나 컬렉션 등을 값으로 설정함
+			       근데 컬렉션만 작성하는게 아니고 @Controller에서 
+			       view page로 넘어온 값도 쓸 수 있다
+			       이로써 콜론(:) 뒤에 리스트로부터 순서대로 값을 꺼내서
+			       클론 앞에 있는 변수에 대입 가능
+			       이 태그의 내부에선 컬렉션 값을 저장하고 있는 변수를
+			       써서 출력할 내용을 제어 가능
+		 -->
+		<div align="center">
+		
+			<table>
+				<tr>
+					<th>값</th>
+				</tr>
+				
+				<tr th:each="m : ${#numbers.sequence(1, 10)}">
+					<td th:text="${m}" />
+			</table>
+			
+		</div>
+
+</body>
+</html>

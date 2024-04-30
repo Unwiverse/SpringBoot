@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		템플릿 프래그먼트
+		- 웹 페이지는 항상 하나의 파일만을 작성해야 되는 건 아님
+		- 예를 들어 header나 footer 메뉴 같은 것들을 별도의 파일로 작성하고
+		  이것들을 조합해 전체의 레이아웃을 만들 수 있음.
+		- 이처럼 여러 파일을 조합해 페이지를 구성할 때 사용하는 것이 템플릿 프래그먼트다
+		- 이런 말씀입니다
+		- 부품이 되는 템플릿에선 <OO th:fragment="프래그먼트명">
+		  조합하는 곳에선 <OO th:include="템플릿명::프래그먼트명">
+	 -->
+	 <div align="center">
+	 	<div th:include="header::frag_header"></div>
+	 
+	 	<h2>여긴 본문 영역입니다</h2>
+	 	
+	 </div>
+
+</body>
+</html>

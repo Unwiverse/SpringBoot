@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		인라인 처리
+		-타임리프는 값을 전부 th:text라는 속성 형태로 저장됨
+		 이건 타임리프가 동작하지 않아도 페이지 표시에
+	 -->
+	<div align="center">
+	
+		<table border="1">
+			<tr>
+				<th>번호</th> <th>이름</th>
+				 <th>이메일</th>
+			</tr>			
+			
+			<tr th:inline="text" th:each="dto : ${Data}">
+				<td>[[${dto.num}]]</td>
+				<td>[[${dto.name}]]</td>
+				<td>[[${dto.email}]]</td>
+			</tr>
+		</table>
+	</div>	
+
+</body>
+</html>

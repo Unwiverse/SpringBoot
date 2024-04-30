@@ -1,0 +1,49 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div align="center">
+	<hr>
+		<h1>게시팧 전체 리스트</h1>
+	<hr>
+	<br><br>
+	<table border="1">
+		<tr>
+			<td colspan="4" align="right">
+			  총 게시물: <span th:text="${#lists.size(List)}"></span>개
+			</td>
+		</tr>
+		
+		<tr>
+			<th>번호</th> <th>제목</th> <th>조회수</th> <th>작성일자</th>
+		</tr>
+		
+		<tr th:if="${not #strings.isEmpty(List)}" th:each="dto : ${List}">
+			<td th:text="${dto.board_no}"></td>
+			
+			<td>
+				<a th:href="@{board_content(no=${dto.board_no})}"
+				   th:text="${dto.board_title}"></a>
+			</td>
+			
+			<td th:text="${dto.board_hit}"></td>
+			<td th:text="${dto.board_date}"></td>
+		</tr>
+		
+		<tr th:if="${#strings.isEmpty(List)}">
+			<td colspan="4" align="center">
+				<h2>목록 x</h2>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+	<input type="button" value="글쓰기" th:onclick="|location.href='board_write'|">
+	
+</div>
+
+</body>
+</html>

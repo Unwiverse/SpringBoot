@@ -1,5 +1,8 @@
 package com.example.thymeleaf.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -71,5 +75,72 @@ public class BeginController {
 		
 		return "index_05";
 	}
+	@GetMapping("score/{jumsu}")
+	public String eee(@PathVariable("jumsu") double avg, Model model) {
+		model.addAttribute("score", avg).
+		addAttribute("hakjum", Math.floor(avg/10));
+		
+		return "index_06";
+	}
+	@GetMapping("each")
+	public String ggg() {
+		
+		return "index_07";
+	}
+	@GetMapping("array") 
+	public String bcd(Model model) {
+		List<String[]> data = new ArrayList<>();
+		
+		data.add(new String[] {"몬스타", "hp", "한성컴퓨터", "TG삼보"});
+		data.add(new String[] {"몬스타", "hp", "한성컴퓨터", "TG삼보"});
+		data.add(new String[] {"몬스타", "hp", "한성컴퓨터", "TG삼보"});
+		data.add(new String[] {"몬스타", "hp", "한성컴퓨터", "TG삼보"});
+		data.add(new String[] {"몬스타", "hp", "한성컴퓨터", "TG삼보"});
+		model.addAttribute("data", data);
+		
+		return "index_08";
+	}
+	@GetMapping("array1")
+	public String def(Model model) {
+		List<DataObject> data = new ArrayList<>();
+		
+		data.add(new DataObject(1, "hong", "hong@naver.com"));
+		data.add(new DataObject(2, "hong", "lee@daum.net"));
+		data.add(new DataObject(3, "hong", "hong@naver.com"));
+		data.add(new DataObject(4, "hong", "hong@naver.com"));
+		data.add(new DataObject(5, "hong", "hong@naver.com"));
+		
+		model.addAttribute("Data", data);
+		
+		return "index_09";
+	}
 	
+	@GetMapping("tax/{num}")
+	public String hhh(@PathVariable("num") int tax, Model model) {
+		
+		model.addAttribute("tax", tax);
+		
+		return "index_10";
+	}
+	
+	@GetMapping("href")
+	public String kkk() {
+		return "index_11";
+	}
+	
+	@GetMapping("param")
+	public String mmm(Model model) {
+		model.addAttribute("name", "김삼순")
+		.addAttribute("weight", "140kg");
+		
+		return "index_12";
+	}
+	
+	@GetMapping("include")
+	public String nnn() {
+		return "index_13";
+	}
 }
+	
+	
+

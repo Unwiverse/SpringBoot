@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<div align="center">
+	
+		<table border="1">
+			<tr>
+				<th>아이디</th> <th>이름</th>
+				<th>연락처</th> <th>이메일</th>
+			</tr>			
+			
+			<tr th:each="dto : ${data}">
+				<td th:text="${dto[0]}" />
+				<td th:text="${dto[1]}" />
+				<td th:text="${dto[2]}" />
+				<td th:text="${dto[3]}" />
+			</tr>
+		</table>
+	</div>	
+
+
+</body>
+</html>

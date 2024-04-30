@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="center">
+        <hr>
+        <h1>회원 정보</h1>
+        <hr>
+        <br><br>
+        	<table border="1">
+	            <tr>
+	                <th>번호</th>
+	                <th>제목</th>
+	                <th>내용</th>
+	                <th>작성일자</th>
+	            </tr>
+	            <tr>
+	                <td th:text="${Info.board_no}"></td>
+	                <td th:text="${Info.board_title}"></td>
+	                <td th:text="${Info.board_cont}"></td>
+	                <td th:text="${Info.board_date}"></td>
+	            </tr>
+        	</table>
+        	<br><br>
+        	<input type="button" value="수정" 
+        	th:onclick="|location.href='@{/board_update(no=${Info.board_no})}'|">
+        	<input type="button" value="삭제"
+        	th:onclick="|location.href='@{/board_delete(no=${Info.board_no})}'|">
+        	
+    </div>
+
+</body>
+</html>

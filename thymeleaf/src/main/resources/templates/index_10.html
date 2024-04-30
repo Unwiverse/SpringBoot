@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" th:inline="javascript">
+	function action() {
+		let val = document.getElementById("text1").value;
+
+		let result = parseInt(val*( (100+/*[[${tax}]]*/ )/100));
+
+		document.getElementById("message").innerHTML = "include tax: "+result;
+		}
+</script>
+</head>
+<body>	
+		<!--  js에서 타입리프(인라인 방식) 처리법 
+			- 인라인 처리는 텍스트 뿐만 아니라 js에서도 적용 가능함
+			- 스크립트의 경우엔 <script> 태그 안에 아래와 같은 형식으로 설정하면 됨
+			  형식) <script th:inline="javascript">
+			  
+			  -이러면 <script> 안에 인라인 처리가 가능함
+			  - 변수식도 단순한 형태가 아니라 아래와 같은 형식으로 ㄱ
+			  
+			  형식)
+			  	/*[[${변수식}]]*/
+			  	
+			  	-주의사항: /* */사이엔 공백 허용 x
+		-->
+		<div align="center">
+			<h1>thymeleaf 페이지</h1>
+				<p id="message"></p>
+				<input id="text1">&nbsp;&nbsp;
+				<input type="button" value="클릭!" onclick="action()">
+				
+		</div>
+
+</body>
+</html>

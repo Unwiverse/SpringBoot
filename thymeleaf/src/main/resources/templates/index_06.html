@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div align="center">
+	
+		<div th:switch="${hakjum}">
+			<p th:case="9" th:text="${score} +' 점수의 학점은 A입니다'" />	
+			<p th:case="8" th:text="${score} +' 점수의 학점은 B입니다'" />	
+			<p th:case="7" th:text="${score} +' 점수의 학점은 C입니다'" />	
+			<p th:case="6" th:text="${score} +' 점수의 학점은 D입니다'" />	
+			<p th:case="*" th:text="${score} +' 점수의 학점은 F입니다'" />	
+		</div>
+	
+	</div>
+
+</body>
+</html>
