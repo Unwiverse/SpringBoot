@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div align="center">
+	   <hr width="30%" color="red">
+	      <h3>MEMBER 테이블 회원 전체 리스트 페이지</h3>
+	   <hr width="30%" color="red">
+	   <br> <br>
+	   
+	   <table border="1" width="450">
+	      <tr>
+	         <td colspan="4" align="right">
+	            총 회원 수 : <span th:text="${#lists.size(List)}"> </span>명
+	         </td>
+	      </tr>
+	      
+	      <tr>
+	         <th>회원 No.</th> <th>회원 이름</th>
+	         <th>회원 직업</th> <th>회원 등록일</th>
+	      </tr>
+	      
+	      <tr th:if="${not #strings.isEmpty(List)}" th:each="dto : ${List}">
+	         <td th:text="${dto.memno}"> </td>
+	         <td>
+	            <a th:href="@{member.content.go(num=${dto.memno})}"
+	               th:text="${dto.memname}"></a>
+	         </td>
+	         <td th:text="${dto.job}"> </td>
+	         <td th:text="${dto.regdate.substring(0, 10)}"> </td>
+	      </tr>
+	      
+	      <tr th:if="${#strings.isEmpty(List)}">
+	         <td colspan="4" align="center">
+	            <h3>전체 회원 목록이 없습니다.....</h3>
+	         </td>
+	      </tr>
+	   </table>
+	   <br> <br>
+	   
+	   <input type="button" value="회원등록"
+	   		th:onclick="|location.href='@{member_insert.go}'|">
+	   		
+	   <br> <br>
+	   
+	   <!--  검색 폼 영역 -->
+	   
+	   <form method="post" action="member_search.go">
+	   
+	      <select name="field">
+	         <option value="id">아이디</option>
+	         <option value="name">이 름</option>
+	         <option value="job">직 업</option>
+	         <option value="addr">주 소</option>	      
+	      </select>
+	      
+	      <input name="keyword">&nbsp;&nbsp;&nbsp;
+	      <input type="submit" value="검색">
+	   </form>
+	   
+	</div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.goott.member.model.MemberMapper">
+
+	<select id="list" resultType="member">
+		select * from member order by memno desc
+	</select>
+	
+	<insert id="add" parameterType="member">
+		<selectKey resultType="int"
+			keyProperty="memno" order="BEFORE">
+			select max(memno) from member
+		</selectKey>
+		
+		insert into member values(#{memno} + 1,
+			#{memid}, #{memname}, #{mempwd}, #{age},
+			#{mileage}, #{job}, #{addr}, sysdate)
+	</insert>
+	
+	
+
+</mapper>
