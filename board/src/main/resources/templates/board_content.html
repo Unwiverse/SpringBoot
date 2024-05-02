@@ -5,32 +5,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div align="center">
+	 <div align="center">
         <hr>
-        <h1>회원 정보</h1>
+        <h1>게시물 정보</h1>
         <hr>
         <br><br>
         	<table border="1">
 	            <tr>
 	                <th>번호</th>
+	                <th>작성자</th>
 	                <th>제목</th>
 	                <th>내용</th>
+	                <th>비번</th>
+	                <th>조회수</th>
 	                <th>작성일자</th>
+	                <th>수정일자</th>
 	            </tr>
+	            
 	            <tr>
 	                <td th:text="${Info.board_no}"></td>
+	                <td th:text="${Info.board_writer}"></td>
 	                <td th:text="${Info.board_title}"></td>
 	                <td th:text="${Info.board_cont}"></td>
+	                <td th:if="${not #strings.isEmpty(Info.board_pwd)}">
+	                	<span th:each="i : ${#numbers.sequence(1, Info.board_pwd.length())}">
+	                		*
+	                	</span>
+	                </td>
+	                <td th:text="${Info.board_hit}"></td>
 	                <td th:text="${Info.board_date}"></td>
+	                <td th:text="${Info.board_update}"></td>
 	            </tr>
         	</table>
         	<br><br>
         	<input type="button" value="수정" 
-        	th:onclick="|location.href='@{/board_update(no=${Info.board_no})}'|">
-        	<input type="button" value="삭제"
-        	th:onclick="|location.href='@{/board_delete(no=${Info.board_no})}'|">
+        	th:onclick="|location.href='@{/board_update(no=${Info.board_no})}'|">&nbsp;&nbsp;&nbsp;
         	
-    </div>
+        	<input type="button" value="삭제"
+        	th:onclick="|location.href='@{/board_delete(no=${Info.board_no})}'|">&nbsp;&nbsp;&nbsp;
+        	
+        	<input type="button" value="목록으로" 
+        	th:onclick="|location.href='@{/board_list}'|">
+     </div>
 
 </body>
 </html>

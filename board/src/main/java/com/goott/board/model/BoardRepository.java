@@ -23,4 +23,16 @@ public class BoardRepository {
 	public Board content(int no) {
 		return this.sqlSession.selectOne("Board.one", no);
 	}
+	public void readCount(int no) {
+		this.sqlSession.update("hit", no);
+	}
+	public int delete(int no) {
+		return this.sqlSession.delete("del", no);
+	}
+	public void updateSeq(int no) {
+		this.sqlSession.update("seq", no);
+	}
+	public int update(Board dto) {
+		return this.sqlSession.update("update", dto);
+	}
 }

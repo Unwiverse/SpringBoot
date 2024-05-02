@@ -60,12 +60,59 @@ public class BoardController {
 	}
 	@GetMapping("board_content")
 	public String content(Model model, @RequestParam("no") int no) {
-		Board dto = this.repository.content(no);
+		this.repository.readCount(no);
 		
+		Board dto = this.repository.content(no);
 		model.addAttribute("Info", dto);
 		
 		return "board_content";
 		
 	}
+	@GetMapping("board_delete")
+	public void delete(@RequestParam("no") int no, HttpServletResponse res) throws IOException {
+		int check = this.repository.delete(no);
+		res.setContentType("text/html; charset=UTF-8");
 		
+		PrintWriter out = res.getWriter();
+		
+		if(check>0) {
+			this.repository.updateSeq(no);
+			out.println("<script>");
+			out.println("alert('됨')");
+			out.println("location.href='board_list'");
+			out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('안됨')");
+			out.println("history.back()");
+			out.println("</script>");
+		}
+	}
+	@GetMapping("board_update")
+	public String update(Model mod, @RequestParam("no") int no) {
+		Board dto = this.repository.content(no);
+		mod.addAttribute("upt", dto);
+		
+		return "board_update";
+	}
+	@GetMapping("board_update_ok")
+	public void updateok(Board dto, HttpServletResponse res) throws IOException {
+		int check = this.repository.update(dto);
+		
+		res.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = res.getWriter();
+		
+		if(check>0) {
+			out.println("<script>");
+			out.println("alert('됨')");
+			out.println("location.href='board_list'");
+			out.println("</script>");
+		} else {
+			out.println("<script>");
+			out.println("alert('안됨')");
+			out.println("history.back()");
+			out.println("</script>");
+		}
+	}
 }
+		

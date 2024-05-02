@@ -109,12 +109,10 @@ public class BeginController {
 		data.add(new DataObject(3, "hong", "hong@naver.com"));
 		data.add(new DataObject(4, "hong", "hong@naver.com"));
 		data.add(new DataObject(5, "hong", "hong@naver.com"));
-		
 		model.addAttribute("Data", data);
 		
 		return "index_09";
 	}
-	
 	@GetMapping("tax/{num}")
 	public String hhh(@PathVariable("num") int tax, Model model) {
 		
@@ -122,12 +120,10 @@ public class BeginController {
 		
 		return "index_10";
 	}
-	
 	@GetMapping("href")
 	public String kkk() {
 		return "index_11";
 	}
-	
 	@GetMapping("param")
 	public String mmm(Model model) {
 		model.addAttribute("name", "김삼순")
@@ -135,11 +131,12 @@ public class BeginController {
 		
 		return "index_12";
 	}
-	
 	@GetMapping("include")
 	public String nnn() {
 		return "index_13";
 	}
+	
+	
 }
 	
 	
