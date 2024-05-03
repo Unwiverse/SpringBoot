@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+   <div align="center">
+      <hr width="30%" color="red">
+         <h3>MEMBER 테이블 검색 회원 리스트 페이지</h3>
+      <hr width="30%" color="red">
+      <br> <br>
+      
+      <table border="1" width="450">
+         <tr>
+            <td colspan="4" align="right">
+               검색 회원 수 : <span th:text="${#lists.size(search)}"></span>명
+            </td>
+         </tr>
+         
+         <tr>
+            <th>회원 No.</th> <th>회원 이름</th>
+            <th>회원 직업</th> <th>회원 등록일</th>
+         </tr>
+         
+         <tr th:if="${not #strings.isEmpty(search)}" th:each="dto : ${search}">
+            <td th:text="${dto.memno}"></td>
+            <td>
+               <a th:href="@{member_search_cont.go(num=${dto.memno}, field=${map.field}, keyword=${map.keyword})}" th:text="${dto.memname}"></a>
+            </td>
+            <td th:text="${dto.job}"></td>
+            <td th:text="${dto.regdate.substring(0, 10)}"></td>
+         </tr>
+         
+         <tr th:if="${#strings.isEmpty(search)}">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+            <td colspan="4" align="center">
+               <h3>검색 회원 목록이 없습니다..</h3>
+            </td>
+         </tr>
+      
+      </table>
+      <br> <br>
+      
+      <input type="button" value="회원목록" th:onclick="|location.href='@{member_list.go}'|">
+     </div>
+</body>
+</html>

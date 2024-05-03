@@ -21,6 +21,4 @@ public interface MemberMapper {
 	public void seq(int num);
 	
 	public List<Member> search(Map<String, String> map);
-	
-	
-}
+	}

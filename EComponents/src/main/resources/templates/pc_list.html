@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="center">
+		<hr>
+			<h2>시스템 구성 목록</h2>
+		<hr>
+		<br><br>
+		<table border="1">
+			<tr>
+				<td colspan="6" align="right">
+				count: <span th:text="${#lists.size(List)}"></span>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>번호</th> <th>CPU</th> <th>Mainboard</th> <th>RAM</th>
+				<th>VGA</th> <th>OS</th> 
+			</tr>
+			
+			<tr th:if="${not #strings.isEmpty(List)}" th:each="dto : ${List}">
+				<td th:text="${dto.pnum}"></td>
+				<td th:text="${dto.cpu}"></td>
+				<td th:text="${dto.mainboard}"></td>
+				<td th:text="${dto.ram}"></td>
+				<td th:text="${dto.vga}"></td>
+				<td th:text="${dto.os}"></td>
+			</tr>
+			
+			<tr th:if="${#strings.isEmpty(List)}">
+				<td colspan="4" align="center">
+					<h2>목록 x</h2>
+				</td>
+			</tr>
+		</table>
+		<br><br>
+		<input type="button" value="추가" th:onclick="|location.href='pc_add'|">
+	</div>
+
+</body>
+</html>

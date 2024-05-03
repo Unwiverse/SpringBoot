@@ -5,7 +5,6 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.goott.member.model.MemberMapper">
-
 	<select id="list" resultType="member">
 		select * from member order by memno desc
 	</select>
@@ -15,12 +14,47 @@
 			keyProperty="memno" order="BEFORE">
 			select max(memno) from member
 		</selectKey>
-		
 		insert into member values(#{memno} + 1,
 			#{memid}, #{memname}, #{mempwd}, #{age},
 			#{mileage}, #{job}, #{addr}, sysdate)
 	</insert>
 	
+	<select id="cont" parameterType="int" resultType="member">
+		select * from member where memno=#{num}
+	</select>
 	
-
+	<update id="modify" parameterType="member">
+		update member set age=#{age}, mileage=#{mileage}, job=#{job},
+		addr=#{addr} where memno=#{memno}
+	</update>
+	
+	<delete id="del" parameterType="int">
+		delete from member where memno=#{num}
+	</delete>
+	
+	<update id="seq" parameterType="int">
+		update member set memno = memno - 1 where memno > #{num}
+	</update>
+	
+	<select id="search" parameterType="map" resultType="member">
+		select * from member 
+		
+		<if test="field == 'id'">
+			where memid 
+		</if>
+		
+		<if test="field == 'name'">
+			where memname 
+		</if>
+		
+		<if test="field == 'job'">
+			where job 
+		</if>
+		
+		<if test="field == 'addr'">
+			where addr 
+		</if>
+			like '%' || #{keyword} || '%'
+			order by memno desc
+	</select>
 </mapper>

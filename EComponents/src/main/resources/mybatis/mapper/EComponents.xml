@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="EComponents">
+  	<select id="list" resultType="com.goott.EComponents.model.EComponents">
+  		select * from pc order by pnum desc
+  	</select>
+  	
+  	<insert id="add" parameterType="com.goott.EComponents.model.EComponents">
+		insert into pc values(
+		(select max(pnum) from pc)+1,
+		#{cpu}, #{mainboard}, #{ram}, #{vga}, #{os}, #{img}
+		)
+  	</insert>
+  	
+  	
+  	
+  </mapper>

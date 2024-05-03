@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div align="center">
+		<hr>
+			<h2>회원 정보 수정</h2>
+		<hr>
+		<br><br>
+		<form method="get" action="member_update_ok.go">
+			<table border="1">
+				<tr>
+					<th>번호</th>
+					<td>
+						<input name="memno" th:value="${Upt.memno}" readonly>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>아이디</th>
+					<td>
+						<input name="memid" th:value="${Upt.memid}" readonly>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>이름</th>
+					<td>
+						<input name="memname" th:value="${Upt.memname}" readonly>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>비번</th>
+					<td>
+						<input type="password" name="mempwd" th:value="${Upt.mempwd}" readonly>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>나이</th>
+					<td>
+						<input name="age" th:value="${Upt.age}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>마일리지</th>
+					<td>
+						<input name="mileage" th:value="${Upt.mileage}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>직업</th>
+					<td>
+						<input name="job" th:value="${Upt.job}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>주소</th>
+					<td>
+						<input name="addr" th:value="${Upt.addr}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>등록일</th>
+					<td>
+						<input name="regdate" th:value="${Upt.regdate}" readonly>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" value="ㄱㄱ">
+			<input type="reset" value="ㄹㄹ">
+		</form>
+		</div>
+
+</body>
+</html>

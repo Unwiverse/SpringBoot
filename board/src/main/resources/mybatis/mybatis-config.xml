@@ -7,6 +7,6 @@
   <configuration>
    <typeAliases>
   		<typeAlias type="com.goott.board.model.Board" alias="board"/>
-  	</typeAliases>
+   </typeAliases>
   
   </configuration>

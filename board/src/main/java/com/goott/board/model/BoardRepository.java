@@ -14,7 +14,6 @@ public class BoardRepository {
 	private final SqlSessionTemplate sqlSession;
 	
 	public List<Board> list() {
-		
 		return this.sqlSession.selectList("Board.list");
 	}
 	public int add(Board dto) {
