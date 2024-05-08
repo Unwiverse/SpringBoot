@@ -12,10 +12,24 @@
   	<insert id="add" parameterType="com.goott.EComponents.model.EComponents">
 		insert into pc values(
 		(select max(pnum) from pc)+1,
-		#{cpu}, #{mainboard}, #{ram}, #{vga}, #{os}, #{img}
+		#{cpu}, #{mainboard}, #{vga}, #{ram}, #{os}, ''
 		)
   	</insert>
   	
+  	<select id="cont" parameterType="int" resultType="com.goott.EComponents.model.EComponents">
+  		select * from pc where pnum=#{no}
+  	</select>
   	
+  	<update id="upt" parameterType="com.goott.EComponents.model.EComponents">
+  		update pc set cpu=#{cpu}, mainboard=#{mainboard}, vga=#{vga}, ram=#{ram},
+  		os=#{os}, img='' where pnum=#{pnum}
+  	</update>
   	
+  	<delete id="del" parameterType="int">
+  		delete from pc where pnum=#{no}
+  	</delete>
+  	
+  	<update id="seq" parameterType="int">
+  		update pc set pnum = pnum-1 where pnum > #{no}
+  	</update>
   </mapper>

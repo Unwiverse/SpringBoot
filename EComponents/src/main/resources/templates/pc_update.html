@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="center">
+		<hr>
+			<h1>시스템 정보 수정</h1>
+		<hr>
+		<br>
+		<br>
+		<form method="get" action="pc_update_ok">
+			<input type="hidden" name="pnum" th:value="${upt.pnum}">
+			<table border="1">
+				<tr>
+					<th>CPU</th>
+					<td>
+					<input name="cpu" th:value="${upt.cpu}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>Mainboard</th>
+					<td>
+					<input name="mainboard" th:value="${upt.mainboard}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>VGA</th>
+					<td>
+					<input name="vga" th:value="${upt.vga}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>RAM</th>
+					<td>
+					<input name="ram" th:value="${upt.ram}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>OS</th>
+					<td>
+					<input name="os" th:value="${upt.os}">
+					</td>
+				</tr>
+				
+				<tr>
+					<th>System Image</th>
+					<td>
+					<input name="img" th:value="${upt.img}" readonly>
+					</td>
+				</tr>
+			</table>
+			<br><br>
+			<input type="submit" value="전송">
+			<input type="reset" value="다시">
+		</form>
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<div align="center">
+			<hr>
+				<h2 th:text="${O.pnum} + '번 시스템 정보'"></h2>
+			<hr>
+			<br><br>
+			
+			<table border="1">
+				<tr>
+					<th>CPU</th>
+					<td th:text="${O.cpu}"></td>
+				</tr>
+				
+				<tr>
+					<th>Mainboard</th>
+					<td th:text="${O.mainboard}"></td>
+				</tr>
+				
+				<tr>
+					<th>VGA</th>
+					<td th:text="${O.vga}"></td>
+				</tr>
+				
+				<tr>
+					<th>RAM</th>
+					<td th:text="${O.ram}"></td>
+				</tr>
+				
+				<tr>
+					<th>OS</th>
+					<td th:text="${O.os}"></td>
+				</tr>
+				
+				<tr>
+					<th>System Image</th>
+					<td th:text="${O.img}"></td>
+				</tr>
+			</table>
+			<br><br>
+			<input type="button" value="수정" 
+			th:onclick="|location.href='@{/pc_update(no=${O.pnum})}'|">&nbsp;&nbsp;
+			<input type="button" value="삭제"
+			th:onclick="|if(confirm('ㄹㅇ?')) {
+			location.href='@{/pc_delete(no=${O.pnum})}' 
+			} else {return; }|">&nbsp;&nbsp;
+			<input type="button" value="목록으로" th:onclick="|location.href='pc_list'|">
+		</div>
+</body>
+</html>

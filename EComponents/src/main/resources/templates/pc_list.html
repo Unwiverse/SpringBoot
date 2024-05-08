@@ -23,7 +23,13 @@
 			</tr>
 			
 			<tr th:if="${not #strings.isEmpty(List)}" th:each="dto : ${List}">
-				<td th:text="${dto.pnum}"></td>
+			
+				<td>
+				 <a  
+					th:href="@{pc_content(no=${dto.pnum})}"
+					th:text="${dto.pnum}">
+				 </a>
+				</td>
 				<td th:text="${dto.cpu}"></td>
 				<td th:text="${dto.mainboard}"></td>
 				<td th:text="${dto.ram}"></td>

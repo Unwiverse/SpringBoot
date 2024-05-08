@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class EComponentsRepository {
+public class EComponentsRepository { //이 클래스가 DAO역할을 함
 	
 	private final SqlSessionTemplate sqlSession;
 	
@@ -19,5 +19,18 @@ public class EComponentsRepository {
 	public int add(EComponents dto) {
 		return this.sqlSession.insert("add", dto);
 	}
+	public EComponents content(int no) {
+		return this.sqlSession.selectOne("cont", no);
+	}
+	public int update(EComponents dto) {
+		return this.sqlSession.update("upt", dto);
+	}
+	public int delete(int no) {
+		return this.sqlSession.delete("del", no);
+	}
+	public void updateSeq(int no) {
+		this.sqlSession.update("seq", no);
+	}
+	
 	
 }
